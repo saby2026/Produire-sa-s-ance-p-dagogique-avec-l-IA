@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produire sa séance pédagogique avec l'IA – Saby Aloe Vera Formation</title>
+  <meta name="description" content="Formation intensive 7h : concevez votre séance pédagogique complète avec l'IA et repartez avec un kit prêt à l'emploi. Présentiel à Plérin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    /* =========================================================
+       CSS VARIABLES & RESET
+    ========================================================= */
+    :root {
+      --cream:       #F8F5EF;
+      --cream-dark:  #EDE8DF;
+      --navy:        #1B3A4B;
+      --navy-light:  #264B60;
+      --terra:       #C8783A;
+      --terra-light: #E8965A;
+      --gold:        #D4A843;
+      --sage:        #5A7A6A;
+      --text:        #2A3340;
+      --text-light:  #5A6475;
+      --white:       #FFFFFF;
+      --radius:      12px;
+      --radius-lg:   20px;
+      --shadow:      0 4px 20px rgba(27, 58, 75, 0.10);
+      --shadow-lg:   0 12px 40px rgba(27, 58, 75, 0.16);
+      --transition:  0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--terra); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--terra-light); }
+    a:focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
+
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================================
+       STICKY NAV
+    ========================================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 245, 239, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Logo placeholder – remplacez par <img src="logo.png" alt="Saby Aloe Vera" height="40"> */
+    .logo-placeholder {
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-placeholder svg { width: 24px; height: 24px; fill: var(--gold); }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-light);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--white) !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 500 !important;
+      font-size: 0.85rem !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+    .nav-cta:hover {
+      background: var(--terra-light) !important;
+      transform: translateY(-1px);
+      color: var(--white) !important;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 64px;
+    }
+
+    /* Decorative background pattern */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 120, 58, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -50px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 168, 67, 0.15);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      width: fit-content;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.90);
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-icon { font-size: 1rem; }
+
+    /* Thematic SVG illustration */
+    .hero-illustration {
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+      opacity: 0.92;
+    }
+
+    /* =========================================================
+       SECTION TITLES
+    ========================================================= */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--terra);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      font-weight: 300;
+    }
+    .section-header { margin-bottom: 44px; }
+
+    /* =========================================================
+       KEY INFOS CARDS
+    ========================================================= */
+    .infos-section {
+      padding: 64px 0 56px;
+      background: var(--white);
+    }
+
+    .infos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      border: 1px solid var(--cream-dark);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+    .info-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .info-value {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    /* =========================================================
+       OBJECTIFS
+    ========================================================= */
+    .objectifs-section {
+      padding: 64px 0;
+    }
+
+    .objectifs-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .objectif-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .objectif-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      border-left: 3px solid var(--terra);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+    .objectif-item:hover { transform: translateX(4px); }
+
+    .objectif-num {
+      background: var(--terra);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.78rem;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .objectif-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .competences-box {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      color: var(--white);
+    }
+    .competences-box h3 {
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .competence-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+    .competence-item:last-child { margin-bottom: 0; }
+    .competence-check {
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       PROGRAMME ACCORDION
+    ========================================================= */
+    .programme-section {
+      padding: 64px 0;
+      background: var(--white);
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .accordion-item {
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+    .accordion-item:hover { box-shadow: var(--shadow); }
+    .accordion-item.open { box-shadow: var(--shadow); }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      text-align: left;
+      transition: background var(--transition);
+    }
+    .accordion-item.open .accordion-trigger { background: var(--cream); }
+
+    .seq-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--cream-dark);
+      flex-shrink: 0;
+      width: 36px;
+      transition: color var(--transition);
+    }
+    .accordion-item.open .seq-num { color: var(--terra); }
+
+    .seq-info { flex: 1; }
+    .seq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .seq-meta {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .seq-duration {
+      background: var(--cream-dark);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 50px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background var(--transition), color var(--transition);
+    }
+    .accordion-item.open .seq-duration { background: var(--terra); color: var(--white); }
+
+    .accordion-icon {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .accordion-item.open .accordion-icon { transform: rotate(180deg); color: var(--terra); }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .accordion-item.open .accordion-body { max-height: 600px; }
+
+    .accordion-content {
+      padding: 0 24px 24px 76px;
+      font-size: 0.94rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .method-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .method-tag {
+      background: rgba(200, 120, 58, 0.10);
+      color: var(--terra);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 50px;
+      border: 1px solid rgba(200, 120, 58, 0.20);
+    }
+
+    /* =========================================================
+       MODALITÉS & ÉVALUATION
+    ========================================================= */
+    .modalites-section {
+      padding: 64px 0;
+    }
+
+    .modalites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .modalite-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--terra);
+      transition: transform var(--transition);
+    }
+    .modalite-card:hover { transform: translateY(-4px); }
+
+    .modalite-card h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terra);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .modalite-card p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       LIEU & CARTE
+    ========================================================= */
+    .lieu-section {
+      padding: 64px 0;
+      background: var(--white);
+    }
+
+    .lieu-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .lieu-info h3 {
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .lieu-address {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .lieu-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .lieu-detail {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .lieu-detail-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 340px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* =========================================================
+       LIVRABLES
+    ========================================================= */
+    .livrables-section {
+      padding: 64px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .livrables-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .livrables-section .section-title { color: var(--white); }
+    .livrables-section .section-label { color: var(--gold); }
+    .livrables-section .section-intro { color: rgba(255,255,255,0.65); }
+
+    .livrables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .livrable-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      transition: background var(--transition);
+    }
+    .livrable-card:hover { background: rgba(255,255,255,0.10); }
+
+    .livrable-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .livrable-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    /* Download buttons */
+    .downloads {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: var(--white);
+      border: 2px solid var(--terra);
+    }
+    .btn-primary:hover {
+      background: var(--terra-light);
+      border-color: var(--terra-light);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(200,120,58,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.30);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.60);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon { font-size: 1.1rem; }
+
+    /* =========================================================
+       QR CODE
+    ========================================================= */
+    .qr-section {
+      padding: 64px 0;
+    }
+
+    .qr-inner {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .qr-text { flex: 1; }
+    .qr-text h3 {
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .qr-text p {
+      font-size: 0.94rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .qr-input-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .qr-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 16px;
+      border: 2px solid var(--cream-dark);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .qr-input:focus { border-color: var(--terra); }
+    .qr-input::placeholder { color: var(--text-light); }
+
+    .btn-generate {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-generate:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+    .qr-display {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .qr-box {
+      width: 180px;
+      height: 180px;
+      background: var(--cream);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--cream-dark);
+      overflow: hidden;
+    }
+    .qr-placeholder-text {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+      padding: 16px;
+      line-height: 1.5;
+    }
+    #qr-code canvas, #qr-code img { border-radius: 8px; }
+    .qr-label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: #0F2330;
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h2 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.50);
+      max-width: 360px;
+      line-height: 1.6;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.70);
+    }
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.70);
+      transition: color var(--transition);
+    }
+    .footer-contact-item a:hover { color: var(--gold); }
+    .contact-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .qualiopi-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 168, 67, 0.12);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+    .qualiopi-badge span {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       ACCESSIBILITY SKIP LINK
+    ========================================================= */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--terra);
+      color: white;
+      padding: 8px 16px;
+      z-index: 999;
+      border-radius: 0 0 8px 0;
+      font-size: 0.85rem;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-illustration { display: none; }
+
+      .objectifs-layout,
+      .lieu-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .accordion-content { padding-left: 24px; }
+
+      .qr-inner {
+        flex-direction: column;
+        padding: 32px 24px;
+      }
+      .qr-display { width: 100%; }
+      .qr-box { width: 100%; }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 56px 0 44px; }
+      .infos-grid { grid-template-columns: 1fr 1fr; }
+      .hero-pills { gap: 8px; }
+      .pill { font-size: 0.78rem; padding: 5px 12px; }
+    }
+
+    /* =========================================================
+       SCROLL REVEAL (CSS)
+    ========================================================= */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <!-- ===== NAV ===== -->
+  <nav role="navigation" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        <!-- Remplacez ce bloc par <img src="logo.png" alt="Saby Aloe Vera Formation" height="42"> quand vous avez votre logo -->
+        <div class="logo-placeholder" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Saby Aloe Vera</span>
+          <span class="brand-tagline">Formation & Pédagogie</span>
+        </div>
+      </div>
+      <ul class="nav-links" role="list">
+        <li><a href="#objectifs">Objectifs</a></li>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#lieu">Lieu</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <header class="hero" role="banner">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge" aria-label="Formation disponible">Formation active</div>
+          <h1>Produire sa séance pédagogique avec <em>l'IA</em> et repartir avec un kit prêt à l'emploi</h1>
+          <p class="hero-desc">
+            Une journée intensive en présentiel pour concevoir, tester et repartir avec une séance pédagogique complète, en s'appuyant sur l'intelligence artificielle comme co-pilote.
+          </p>
+          <div class="hero-pills" role="list">
+            <span class="pill" role="listitem"><span class="pill-icon" aria-hidden="true">⏱</span> 7 heures</span>
+            <span class="pill" role="listitem"><span class="pill-icon" aria-hidden="true">📍</span> Présentiel – Plérin</span>
+            <span class="pill" role="listitem"><span class="pill-icon" aria-hidden="true">👥</span> Formateurs techniques</span>
+            <span class="pill" role="listitem"><span class="pill-icon" aria-hidden="true">🤖</span> IA conversationnelle</span>
+          </div>
+        </div>
+
+        <!-- Thematic SVG Illustration -->
+        <svg class="hero-illustration" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <!-- Background circle -->
+          <circle cx="110" cy="110" r="100" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Brain/network nodes -->
+          <circle cx="110" cy="60" r="18" fill="rgba(212,168,67,0.25)" stroke="#D4A843" stroke-width="1.5"/>
+          <circle cx="62" cy="95" r="13" fill="rgba(200,120,58,0.20)" stroke="#C8783A" stroke-width="1.5"/>
+          <circle cx="158" cy="95" r="13" fill="rgba(200,120,58,0.20)" stroke="#C8783A" stroke-width="1.5"/>
+          <circle cx="80" cy="148" r="13" fill="rgba(90,122,106,0.25)" stroke="#5A7A6A" stroke-width="1.5"/>
+          <circle cx="140" cy="148" r="13" fill="rgba(90,122,106,0.25)" stroke="#5A7A6A" stroke-width="1.5"/>
+          <circle cx="110" cy="168" r="16" fill="rgba(212,168,67,0.20)" stroke="#D4A843" stroke-width="1.5"/>
+          <!-- Connections -->
+          <line x1="110" y1="78" x2="62" y2="95" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="110" y1="78" x2="158" y2="95" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="62" y1="108" x2="80" y2="135" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="158" y1="108" x2="140" y2="135" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="80" y1="161" x2="110" y2="152" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="140" y1="161" x2="110" y2="152" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="62" y1="108" x2="140" y2="148" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
+          <line x1="158" y1="108" x2="80" y2="148" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
+          <!-- AI label in center node -->
+          <text x="110" y="64" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', serif" font-size="11" fill="#D4A843" font-weight="600">IA</text>
+          <!-- Icons in nodes -->
+          <text x="62" y="99" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="rgba(255,255,255,0.7)">🎯</text>
+          <text x="158" y="99" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="rgba(255,255,255,0.7)">📝</text>
+          <text x="80" y="152" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="rgba(255,255,255,0.7)">⚡</text>
+          <text x="140" y="152" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="rgba(255,255,255,0.7)">✅</text>
+          <text x="110" y="172" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="rgba(255,255,255,0.7)">🚀</text>
+          <!-- Orbiting dots -->
+          <circle cx="110" cy="20" r="3" fill="rgba(212,168,67,0.50)"/>
+          <circle cx="185" cy="65" r="2.5" fill="rgba(200,120,58,0.50)"/>
+          <circle cx="195" cy="140" r="2" fill="rgba(90,122,106,0.50)"/>
+          <circle cx="25" cy="130" r="2.5" fill="rgba(200,120,58,0.40)"/>
+          <circle cx="45" cy="50" r="2" fill="rgba(212,168,67,0.40)"/>
+        </svg>
+      </div>
+    </header>
+
+    <!-- ===== INFOS CLÉS ===== -->
+    <section class="infos-section" aria-labelledby="infos-title">
+      <div class="container">
+        <div class="infos-grid" data-reveal>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">⏱</div>
+            <div class="info-label">Durée</div>
+            <div class="info-value">7 heures<br><small style="font-size:0.82rem;color:var(--text-light);font-weight:300;">6h35 de séquences + pauses</small></div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">👥</div>
+            <div class="info-label">Public cible</div>
+            <div class="info-value">Formateurs techniques, experts métier, novices en pédagogie</div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">📋</div>
+            <div class="info-label">Prérequis</div>
+            <div class="info-value">Animer ou devoir animer une formation. Aucune formation pédagogique préalable.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">🖥️</div>
+            <div class="info-label">Format</div>
+            <div class="info-value">Présentiel – Formation active, guidée et orientée production</div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon" aria-hidden="true">🎖️</div>
+            <div class="info-label">Démarche qualité</div>
+            <div class="info-value">Conforme aux exigences <strong>Qualiopi</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OBJECTIFS ===== -->
+    <section class="objectifs-section" id="objectifs" aria-labelledby="objectifs-title">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-label">Ce que vous allez apprendre</p>
+          <h2 class="section-title" id="objectifs-title">Objectifs pédagogiques</h2>
+          <p class="section-intro">À l'issue de la formation, vous concevez une séance pédagogique complète avec l'appui de l'IA, prête à être utilisée dès le lendemain.</p>
+        </div>
+
+        <div class="objectifs-layout">
+          <ul class="objectif-list" role="list" data-reveal>
+            <li class="objectif-item">
+              <span class="objectif-num" aria-hidden="true">1</span>
+              <span class="objectif-text">Formuler un <strong>objectif pédagogique mesurable</strong></span>
+            </li>
+            <li class="objectif-item">
+              <span class="objectif-num" aria-hidden="true">2</span>
+              <span class="objectif-text">Construire une séance <strong>simple, structurée et directement transférable</strong></span>
+            </li>
+            <li class="objectif-item">
+              <span class="objectif-num" aria-hidden="true">3</span>
+              <span class="objectif-text">Utiliser un <strong>prompt guidé</strong> pour produire activité, support et évaluation</span>
+            </li>
+            <li class="objectif-item">
+              <span class="objectif-num" aria-hidden="true">4</span>
+              <span class="objectif-text">Adapter la séance à un public hétérogène et <strong>analyser la pertinence d'une production IA</strong></span>
+            </li>
+          </ul>
+
+          <div class="competences-box" data-reveal>
+            <h3>Compétences développées</h3>
+            <div class="competence-item">
+              <span class="competence-check" aria-hidden="true">◆</span>
+              <span>Analyser un besoin ou un référentiel pour cibler les attendus</span>
+            </div>
+            <div class="competence-item">
+              <span class="competence-check" aria-hidden="true">◆</span>
+              <span>Concevoir une séquence pédagogique avec objectifs, activités et évaluation</span>
+            </div>
+            <div class="competence-item">
+              <span class="competence-check" aria-hidden="true">◆</span>
+              <span>Animer en mobilisant des méthodes actives et des supports accessibles</span>
+            </div>
+            <div class="competence-item">
+              <span class="competence-check" aria-hidden="true">◆</span>
+              <span>Tracer les apprentissages et sécuriser sa pratique au regard de Qualiopi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROGRAMME ===== -->
+    <section class="programme-section" id="programme" aria-labelledby="programme-title">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-label">Déroulé de la journée</p>
+          <h2 class="section-title" id="programme-title">Programme</h2>
+          <p class="section-intro">7 séquences progressives pour passer de l'intention pédagogique à la production concrète.</p>
+        </div>
+
+        <div class="accordion" role="list" data-reveal>
+
+          <!-- S1 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s1-body" id="s1-btn">
+              <span class="seq-num" aria-hidden="true">01</span>
+              <div class="seq-info">
+                <span class="seq-title">Introduction immersive</span>
+                <span class="seq-meta">Identifier ses attentes et entrer dans la formation</span>
+              </div>
+              <span class="seq-duration">20 min</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s1-body" role="region" aria-labelledby="s1-btn">
+              <div class="accordion-content">
+                <p>Recueil des attentes des participants, présentation du cadre et des livrables de la journée. Chaque participant identifie sa situation de départ et ce qu'il souhaite emporter.</p>
+                <div class="method-tags" aria-label="Méthodes pédagogiques">
+                  <span class="method-tag">Recueil des attentes</span>
+                  <span class="method-tag">Post-it / Wooclap</span>
+                  <span class="method-tag">Présentation de la journée</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S2 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s2-body" id="s2-btn">
+              <span class="seq-num" aria-hidden="true">02</span>
+              <div class="seq-info">
+                <span class="seq-title">Démonstration IA guidée</span>
+                <span class="seq-meta">Comparer "sans IA" vs "avec IA" pour comprendre l'intérêt de l'outil</span>
+              </div>
+              <span class="seq-duration">45 min</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s2-body" role="region" aria-labelledby="s2-btn">
+              <div class="accordion-content">
+                <p>Le formateur produit en direct une séance pédagogique classique, puis la même avec l'IA. Les participants analysent les différences en binôme et identifient les apports concrets de l'IA.</p>
+                <div class="method-tags">
+                  <span class="method-tag">Démonstration live</span>
+                  <span class="method-tag">Analyse en binôme</span>
+                  <span class="method-tag">Questions flash</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S3 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s3-body" id="s3-btn">
+              <span class="seq-num" aria-hidden="true">03</span>
+              <div class="seq-info">
+                <span class="seq-title">Prise en main de l'IA</span>
+                <span class="seq-meta">Utiliser un prompt simple pour générer un objectif pédagogique conforme</span>
+              </div>
+              <span class="seq-duration">1 h 15</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s3-body" role="region" aria-labelledby="s3-btn">
+              <div class="accordion-content">
+                <p>Prise en main pas à pas de l'outil d'IA conversationnelle. Chaque participant utilise un prompt simplifié pour reformuler une compétence métier en objectif pédagogique clair et mesurable. Validation par le groupe.</p>
+                <div class="method-tags">
+                  <span class="method-tag">Pratique guidée</span>
+                  <span class="method-tag">Prompt simplifié</span>
+                  <span class="method-tag">Validation collective</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S4 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s4-body" id="s4-btn">
+              <span class="seq-num" aria-hidden="true">04</span>
+              <div class="seq-info">
+                <span class="seq-title">Atelier de production ★</span>
+                <span class="seq-meta">Concevoir sa séance complète : objectif, activité, support et évaluation</span>
+              </div>
+              <span class="seq-duration">2 h 30</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s4-body" role="region" aria-labelledby="s4-btn">
+              <div class="accordion-content">
+                <p>Le cœur de la formation. En 5 étapes progressives, chaque participant conçoit une situation d'apprentissage complète à partir d'un déroulé existant :</p>
+                <ul style="margin:12px 0 12px 16px;display:flex;flex-direction:column;gap:6px;list-style:none;">
+                  <li style="font-size:0.9rem;color:var(--text-light);display:flex;gap:8px;"><span style="color:var(--terra);font-weight:600;">①</span> Partir de la compétence et de ses indicateurs (10 min)</li>
+                  <li style="font-size:0.9rem;color:var(--text-light);display:flex;gap:8px;"><span style="color:var(--terra);font-weight:600;">②</span> Traduire en situation concrète (15 min)</li>
+                  <li style="font-size:0.9rem;color:var(--text-light);display:flex;gap:8px;"><span style="color:var(--terra);font-weight:600;">③</span> Générer une activité avec l'IA (20 min)</li>
+                  <li style="font-size:0.9rem;color:var(--text-light);display:flex;gap:8px;"><span style="color:var(--terra);font-weight:600;">④</span> Créer un support simple (15 min)</li>
+                  <li style="font-size:0.9rem;color:var(--text-light);display:flex;gap:8px;"><span style="color:var(--terra);font-weight:600;">⑤</span> Définir une évaluation alignée (15 min)</li>
+                </ul>
+                <div class="method-tags">
+                  <span class="method-tag">Production individuelle</span>
+                  <span class="method-tag">Micro-coaching</span>
+                  <span class="method-tag">Synthèse collective</span>
+                  <span class="method-tag">Alignement inversé</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S5 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s5-body" id="s5-btn">
+              <span class="seq-num" aria-hidden="true">05</span>
+              <div class="seq-info">
+                <span class="seq-title">Analyse critique</span>
+                <span class="seq-meta">Relire et améliorer la production selon des critères pédagogiques</span>
+              </div>
+              <span class="seq-duration">45 min</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s5-body" role="region" aria-labelledby="s5-btn">
+              <div class="accordion-content">
+                <p>Chaque participant utilise une grille d'analyse critique pour évaluer la production IA : pertinence pédagogique, alignement avec l'objectif, faisabilité terrain. Échanges en binôme pour enrichir la production.</p>
+                <div class="method-tags">
+                  <span class="method-tag">Grille d'analyse</span>
+                  <span class="method-tag">Travail en binôme</span>
+                  <span class="method-tag">Regard critique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S6 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s6-body" id="s6-btn">
+              <span class="seq-num" aria-hidden="true">06</span>
+              <div class="seq-info">
+                <span class="seq-title">Test rapide & mutualisation</span>
+                <span class="seq-meta">Présenter une activité et recueillir un retour structuré</span>
+              </div>
+              <span class="seq-duration">40 min</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s6-body" role="region" aria-labelledby="s6-btn">
+              <div class="accordion-content">
+                <p>Micro-enseignement : chaque participant présente en quelques minutes une activité clé de sa séance. Le groupe formule un feedback structuré (points forts / points d'amélioration). Mutualisation des bonnes pratiques.</p>
+                <div class="method-tags">
+                  <span class="method-tag">Micro-enseignement</span>
+                  <span class="method-tag">Feedback structuré</span>
+                  <span class="method-tag">Mutualisation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S7 -->
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="s7-body" id="s7-btn">
+              <span class="seq-num" aria-hidden="true">07</span>
+              <div class="seq-info">
+                <span class="seq-title">Conclusion & plan d'action</span>
+                <span class="seq-meta">Formaliser un apprentissage clé et un plan d'action immédiat</span>
+              </div>
+              <span class="seq-duration">20 min</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-body" id="s7-body" role="region" aria-labelledby="s7-btn">
+              <div class="accordion-content">
+                <p>Évaluation à chaud de la formation. Chaque participant formalise un apprentissage clé et son prochain pas concret. Remise du kit complet (trame de séance, prompt, check-list) et clôture collective.</p>
+                <div class="method-tags">
+                  <span class="method-tag">Évaluation à chaud</span>
+                  <span class="method-tag">Plan d'action</span>
+                  <span class="method-tag">Remise du kit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODALITÉS ===== -->
+    <section class="modalites-section" aria-labelledby="modalites-title">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-label">Comment ça se passe</p>
+          <h2 class="section-title" id="modalites-title">Modalités & évaluation</h2>
+        </div>
+        <div class="modalites-grid" data-reveal>
+          <div class="modalite-card">
+            <h3>Pédagogie</h3>
+            <p>Démonstration guidée, pratique pas à pas, co-construction d'une séance réelle, analyse critique en binôme, micro-enseignement et feedback collectif.</p>
+          </div>
+          <div class="modalite-card">
+            <h3>Accessibilité</h3>
+            <p>Consignes simples, supports oral et visuel contrastés, structuration claire. Participation possible à l'oral. Prise en compte PMR. Contactez-nous pour tout besoin spécifique.</p>
+          </div>
+          <div class="modalite-card">
+            <h3>Évaluation</h3>
+            <p>Recueil des attentes, questions flash, validation d'un objectif pédagogique, production d'une séance complète, grille d'analyse critique et évaluation à chaud.</p>
+          </div>
+          <div class="modalite-card">
+            <h3>Moyens</h3>
+            <p>Paperboard, post-it, vidéoprojecteur, ordinateur, outil d'IA conversationnelle, prompt simplifié, trame de séance, fiches d'aide et grilles de feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIEU ===== -->
+    <section class="lieu-section" id="lieu" aria-labelledby="lieu-title">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-label">Où se déroule la formation</p>
+          <h2 class="section-title" id="lieu-title">Lieu de formation</h2>
+        </div>
+        <div class="lieu-layout" data-reveal>
+          <div class="lieu-info">
+            <h3>Plérin, Côtes-d'Armor</h3>
+            <p class="lieu-address">
+              7 Rue du Bignon<br>
+              22190 Plérin<br>
+              Bretagne, France
+            </p>
+            <div class="lieu-details">
+              <div class="lieu-detail">
+                <span class="lieu-detail-icon" aria-hidden="true">📅</span>
+                <span>Date à confirmer – <a href="mailto:sabrina.ollivierjobic@gmail.com">Contactez-nous pour les prochaines sessions</a></span>
+              </div>
+              <div class="lieu-detail">
+                <span class="lieu-detail-icon" aria-hidden="true">🚗</span>
+                <span>Plérin est accessible depuis Saint-Brieuc (5 km) et dispose de parkings à proximité.</span>
+              </div>
+              <div class="lieu-detail">
+                <span class="lieu-detail-icon" aria-hidden="true">♿</span>
+                <span>Accessibilité PMR prise en compte. Signalez vos besoins spécifiques lors de l'inscription.</span>
+              </div>
+              <div class="lieu-detail">
+                <span class="lieu-detail-icon" aria-hidden="true">📞</span>
+                <span><a href="tel:+33786485986">07 86 48 59 86</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.3!2d-2.7568!3d48.5278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f5a17b7c8f8a1%3A0x1!2s7+Rue+du+Bignon%2C+22190+Pl%C3%A9rin!5e0!3m2!1sfr!2sfr!4v1"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localisation de la formation – 7 Rue du Bignon, 22190 Plérin"
+              aria-label="Carte Google Maps indiquant l'adresse de la formation à Plérin">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIVRABLES & DOCUMENTS ===== -->
+    <section class="livrables-section" id="documents" aria-labelledby="livrables-title">
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="section-header" data-reveal>
+          <p class="section-label">Ce que vous repartez avec</p>
+          <h2 class="section-title" id="livrables-title">Livrables & documents</h2>
+          <p class="section-intro">Chaque participant repart avec un kit complet, immédiatement mobilisable dans sa pratique.</p>
+        </div>
+
+        <div class="livrables-grid" data-reveal>
+          <div class="livrable-card">
+            <div class="livrable-icon" aria-hidden="true">📋</div>
+            <div class="livrable-name">Une trame de séance pédagogique complète</div>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon" aria-hidden="true">🤖</div>
+            <div class="livrable-name">Un prompt IA simplifié, prêt à réutiliser</div>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon" aria-hidden="true">🎓</div>
+            <div class="livrable-name">Une production pédagogique exploitable dès le lendemain</div>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon" aria-hidden="true">✅</div>
+            <div class="livrable-name">Une check-list de réutilisation et d'auto-évaluation</div>
+          </div>
+        </div>
+
+        <div class="downloads" data-reveal>
+          <a href="programme.pdf" class="btn-download btn-primary" download aria-label="Télécharger le programme de formation (PDF)">
+            <span class="btn-icon" aria-hidden="true">📄</span>
+            Programme de formation (PDF)
+          </a>
+          <a href="livret-stagiaire.pdf" class="btn-download btn-outline" download aria-label="Télécharger le livret stagiaire (PDF)">
+            <span class="btn-icon" aria-hidden="true">📘</span>
+            Livret stagiaire (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QR CODE ===== -->
+    <section class="qr-section" aria-labelledby="qr-title">
+      <div class="container">
+        <div class="qr-inner" data-reveal>
+          <div class="qr-text">
+            <h3 id="qr-title">QR Code de la page</h3>
+            <p>
+              Une fois la page déployée sur GitHub Pages, saisissez votre URL publique ci-dessous pour générer le QR code à afficher en formation ou à intégrer dans vos supports papier.
+            </p>
+            <div class="qr-input-group">
+              <input
+                type="url"
+                class="qr-input"
+                id="qr-url"
+                placeholder="https://votre-pseudo.github.io/votre-repo"
+                aria-label="URL de la page GitHub Pages"
+              />
+              <button class="btn-generate" onclick="generateQR()" aria-label="Générer le QR code">
+                Générer ▶
+              </button>
+            </div>
+          </div>
+          <div class="qr-display" aria-live="polite">
+            <div class="qr-box" id="qr-box">
+              <div id="qr-code">
+                <p class="qr-placeholder-text">Entrez l'URL de la page<br>pour générer le QR code</p>
+              </div>
+            </div>
+            <p class="qr-label">Scannez pour accéder à la page</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h2>Saby Aloe Vera</h2>
+          <p>Formation & accompagnement pédagogique pour formateurs techniques et experts métier. Production active, immédiatement exploitable.</p>
+        </div>
+        <address class="footer-contact" style="font-style:normal;">
+          <div class="footer-contact-item">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <a href="mailto:sabrina.ollivierjobic@gmail.com">sabrina.ollivierjobic@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <a href="tel:+33786485986">07 86 48 59 86</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="contact-icon" aria-hidden="true">📍</span>
+            <span>7 Rue du Bignon – 22190 Plérin</span>
+          </div>
+        </address>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Saby Aloe Vera Formation – Tous droits réservés</p>
+        <div class="qualiopi-badge" aria-label="Démarche qualité conforme Qualiopi">
+          <span aria-hidden="true">🎖️</span>
+          <span>Démarche Qualiopi</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    /* ---- Accordion ---- */
+    document.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ---- Scroll Reveal ---- */
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('revealed'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ---- QR Code Generator ---- */
+    function generateQR() {
+      const url = document.getElementById('qr-url').value.trim();
+      const container = document.getElementById('qr-code');
+      if (!url) {
+        container.innerHTML = '<p class="qr-placeholder-text">Veuillez entrer une URL valide</p>';
+        return;
+      }
+      container.innerHTML = '';
+      new QRCode(container, {
+        text: url,
+        width: 170,
+        height: 170,
+        colorDark: '#1B3A4B',
+        colorLight: '#FFFFFF',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    // Allow Enter key in URL input
+    document.getElementById('qr-url').addEventListener('keydown', e => {
+      if (e.key === 'Enter') generateQR();
+    });
+
+    /* ---- Open first accordion by default ---- */
+    document.querySelector('.accordion-item').classList.add('open');
+    document.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'true');
+  </script>
+
+</body>
+</html>
